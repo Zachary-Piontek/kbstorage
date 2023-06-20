@@ -3,6 +3,8 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
 
+// next auth needs pages api folder for auth to work properly, I believe docs for update in next version with fix this 
+
 const prisma = new PrismaClient();
 
 export default NextAuth({
