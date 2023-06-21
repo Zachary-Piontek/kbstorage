@@ -1,4 +1,5 @@
 import Stripe from "stripe";
+import StorageUnit from "./components/StorageUnit";
 
 const getStorageUnits = async () => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -27,10 +28,10 @@ export default async function Home() {
   const storageUnits = await getStorageUnits();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold text-center">
-        Welcome to KB storage 🏢
-      </h1>
+    <main className="flex min-h-screen flex-col items-center p-24">
+      {storageUnits.map((storageUnit) => (
+        <StorageUnit key={storageUnit.id} {...storageUnit} />
+      ))}
     </main>
   );
 }
