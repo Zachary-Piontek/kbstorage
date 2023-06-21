@@ -9,7 +9,7 @@ import Stripe from "stripe";
 const prisma = new PrismaClient();
 
 // need to pass to check if user is authenticated
-export const options = {
+export const authOptions = {
     adapter: PrismaAdapter(prisma),
     providers: [
         // start with google auth
@@ -41,4 +41,4 @@ export const options = {
 },
 };
 
-export default NextAuth(options);
+export default NextAuth(authOptions);
