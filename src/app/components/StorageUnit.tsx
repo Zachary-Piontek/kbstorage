@@ -12,13 +12,13 @@ export default function StorageUnit({
 }) {
   return (
     <div>
-      <h1 className="text-amber-100 text-2xl">{name}</h1>
+      <h1 className="text-amber-100 text-2xl flex justify-center">{name}</h1>
       <Image
-        className="rounded-md border-2 border-amber-200"
+        className="rounded-md border-2 border-amber-200 max-w-full h-auto"
         src={image}
         alt={name}
-        width={400}
-        height={400}
+        width={800}
+        height={800}
       />
       {/* had error for null of number, needed to check to see if it exists or does not not, this fixed error */}
       {price !== null ? formatPrice(price) : "No price available"}

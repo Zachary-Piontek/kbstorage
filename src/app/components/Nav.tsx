@@ -7,9 +7,9 @@ import Image from "next/image";
 
 export default function Nav({ user }: Session & { user: any }) {
   return (
-    <nav className="flex justify-between">
-      <h1 className="text-3xl text-center">KB Storage 🏢</h1>
-      <ul className="flex flex-col items-center">
+    <nav className="flex justify-between items-center border-b-2 border-amber-400 bg">
+      <h1 className="text-5xl text-center m-1">KB Storage 🏢</h1>
+      <ul className="flex flex-col items-center gap-1 m-1">
         <li>User</li>
         {/* check if user is logged in */}
         {!user && (

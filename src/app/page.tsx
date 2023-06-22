@@ -28,7 +28,7 @@ export default async function Home() {
   const storageUnits = await getStorageUnits();
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center m-4">
       {storageUnits.map((storageUnit) => (
         <StorageUnit key={storageUnit.id} {...storageUnit} />
       ))}
