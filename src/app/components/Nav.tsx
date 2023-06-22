@@ -8,9 +8,9 @@ import Image from "next/image";
 export default function Nav({ user }: Session & { user: any }) {
   return (
     <nav className="flex justify-between">
-      <h1 className="text-3xl text-center">auth user navbar</h1>
+      <h1 className="text-3xl text-center">KB Storage 🏢</h1>
       <ul className="flex flex-col items-center">
-        <li>Storages</li>
+        <li>User</li>
         {/* check if user is logged in */}
         {!user && (
           <li className="bg-amber-300 text-black rounded-sm">

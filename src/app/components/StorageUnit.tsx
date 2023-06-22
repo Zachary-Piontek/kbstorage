@@ -1,4 +1,5 @@
 import Image from "next/image";
+import formatPrice from "../util/PriceFormat";
 
 export default function StorageUnit({
   name,
@@ -19,7 +20,8 @@ export default function StorageUnit({
         width={400}
         height={400}
       />
-      <p>Price: {price}</p>
+      {/* had error for null of number, needed to check to see if it exists or does not not, this fixed error */}
+      {price !== null ? formatPrice(price) : "No price available"}
     </div>
   );
 }
