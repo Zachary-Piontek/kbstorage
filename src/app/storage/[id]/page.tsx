@@ -1,8 +1,19 @@
 import Image from "next/image";
 import formatPrice from "../../util/PriceFormat";
 
-export default async function Storage({ searchParams }) {
-  console.log(searchParams);
+// added interface to get rid of error
+interface SearchParams {
+  name: string;
+  image: string;
+  description: string;
+  price: number | null;
+}
+
+export default async function Storage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-amber-100 text-2xl flex justify-center">
