@@ -7,15 +7,23 @@ export default function StorageUnit({
   name,
   price,
   image,
+  description,
 }: {
   id: string;
   name: string;
   price: number | null;
   image: string;
+  description: string | null;
 }) {
   return (
     <div>
-      <Link href={`/storage/${id}`}>
+      {/* added pathname and query to get the url to work properly */}
+      <Link
+        href={{
+          pathname: `/storage/${id}`,
+          query: { name, image, price, id, description },
+        }}
+      >
         <h1 className="text-amber-100 text-2xl flex justify-center">{name}</h1>
         <Image
           className="rounded-md border-2 border-amber-200 max-w-full h-auto"

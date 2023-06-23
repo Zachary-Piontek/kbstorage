@@ -18,6 +18,7 @@ const getStorageUnits = async () => {
         price: prices.data[0].unit_amount,
         image: storageUnit.images[0],
         currency: prices.data[0].currency,
+        description: storageUnit.description,
       };
     })
   );
