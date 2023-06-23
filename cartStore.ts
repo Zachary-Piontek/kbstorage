@@ -13,6 +13,7 @@ type CartItem = {
 type CartStore = {
     isOpen: boolean;
     cart: CartItem[];
+    toggleCart: () => void;
 };
 
 export const useCartStore = create<CartStore>()(
@@ -20,6 +21,7 @@ export const useCartStore = create<CartStore>()(
         (set) => ({
             isOpen: false,
             cart: [],
+            toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
         }),
         {
             name: "cart-store",
