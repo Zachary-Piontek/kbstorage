@@ -16,7 +16,7 @@ export default async function Storage({
 }) {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-amber-100 text-2xl flex justify-center">
+      <h1 className="text-amber-200 font-bold text-2xl flex justify-center">
         {searchParams.name}
       </h1>
       <Image
@@ -26,10 +26,15 @@ export default async function Storage({
         width={800}
         height={800}
       />
-      <p className="flex p-4">{searchParams.description}</p>
-      {searchParams.price !== null
-        ? formatPrice(searchParams.price)
-        : "No price available"}
+      <p className="flex p-4 text-amber-100">{searchParams.description}</p>
+      <p className="font-bold text-amber-300">
+        {searchParams.price !== null
+          ? formatPrice(searchParams.price)
+          : "No price available"}
+      </p>
+      <button className="bg-amber-300 text-black rounded-sm p-2 m-2">
+        Add to Cart
+      </button>
     </div>
   );
 }
