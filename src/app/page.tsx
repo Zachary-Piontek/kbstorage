@@ -5,7 +5,10 @@ const getStorageUnits = async () => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: "2022-11-15",
   });
-  const storageUnits = await stripe.products.list();
+  // stripe by default only returns 10 items, so we need to set a limit
+  const storageUnits = await stripe.products.list({
+    limit: 20,
+  });
 
   const storageUnitWithPrices = await Promise.all(
     storageUnits.data.map(async (storageUnit) => {
