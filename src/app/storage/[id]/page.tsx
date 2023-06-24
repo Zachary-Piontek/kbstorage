@@ -1,19 +1,9 @@
 import Image from "next/image";
 import formatPrice from "../../util/PriceFormat";
+import { SearchParamsTypes } from "@/app/types/SearchParamsType";
+import AddCart from "./AddCart";
 
-// added interface to get rid of error
-interface SearchParams {
-  name: string;
-  image: string;
-  description: string;
-  price: number | null;
-}
-
-export default async function Storage({
-  searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
+export default async function Storage({ searchParams }: SearchParamsTypes) {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-amber-200 font-bold text-2xl flex justify-center">
@@ -28,13 +18,11 @@ export default async function Storage({
       />
       <p className="flex p-4 text-amber-100">{searchParams.description}</p>
       <p className="font-bold text-amber-300">
-        {searchParams.price !== null
-          ? formatPrice(searchParams.price)
+        {searchParams.unit_amount !== null
+          ? formatPrice(searchParams.unit_amount)
           : "No price available"}
       </p>
-      <button className="bg-amber-300 text-black rounded-sm p-2 m-2">
-        Add to Cart
-      </button>
+      <AddCart {...searchParams} />
     </div>
   );
 }
