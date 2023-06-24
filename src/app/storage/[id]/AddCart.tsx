@@ -15,7 +15,7 @@ export default function AddCart({
   return (
     <button
       onClick={() =>
-        cartStore.addStorage({ id, image, name, unit_amount, quantity })
+        cartStore.addStorage({ id, name, image, unit_amount, quantity })
       }
       className="bg-amber-200 hover:bg-amber-300 text-amber-900 font-bold py-2 px-4 rounded-full"
     >

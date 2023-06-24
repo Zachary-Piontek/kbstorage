@@ -15,12 +15,11 @@ export default async function Storage({ searchParams }: SearchParamsTypes) {
         alt={searchParams.name}
         width={800}
         height={800}
+        priority={true}
       />
       <p className="flex p-4 text-amber-100">{searchParams.description}</p>
       <p className="font-bold text-amber-300">
-        {searchParams.unit_amount !== null
-          ? formatPrice(searchParams.unit_amount)
-          : "No price available"}
+        {searchParams.unit_amount && formatPrice(searchParams.unit_amount)}
       </p>
       <AddCart {...searchParams} />
     </div>

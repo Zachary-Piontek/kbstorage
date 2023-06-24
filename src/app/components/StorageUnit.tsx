@@ -16,7 +16,7 @@ export default function StorageUnit({
       <Link
         href={{
           pathname: `/storage/${id}`,
-          query: { name, image, unit_amount, id, description },
+          query: { id, name, image, unit_amount, description },
         }}
       >
         <h1 className="text-amber-100 text-2xl flex justify-center">{name}</h1>
