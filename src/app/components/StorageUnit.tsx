@@ -1,27 +1,22 @@
 import Image from "next/image";
 import formatPrice from "../util/PriceFormat";
 import Link from "next/link";
+import { StorageType } from "../types/StorageType";
 
 export default function StorageUnit({
   id,
   name,
-  price,
   image,
   description,
-}: {
-  id: string;
-  name: string;
-  price: number | null;
-  image: string;
-  description: string | null;
-}) {
+  unit_amount,
+}: StorageType) {
   return (
     <div>
       {/* added pathname and query to get the url to work properly */}
       <Link
         href={{
           pathname: `/storage/${id}`,
-          query: { name, image, price, id, description },
+          query: { name, image, unit_amount, id, description },
         }}
       >
         <h1 className="text-amber-100 text-2xl flex justify-center">{name}</h1>
@@ -33,7 +28,7 @@ export default function StorageUnit({
           height={800}
         />
         {/* had error for null of number, needed to check to see if it exists or does not not, this fixed error */}
-        {price !== null ? formatPrice(price) : "No price available"}
+        {unit_amount !== null ? formatPrice(unit_amount) : "No price available"}
       </Link>
     </div>
   );
