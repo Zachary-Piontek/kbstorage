@@ -21,7 +21,7 @@ export default async function Storage({ searchParams }: SearchParamsTypes) {
       <p className="font-bold text-amber-300">
         {searchParams.unit_amount && formatPrice(searchParams.unit_amount)}
       </p>
-      <AddCart {...searchParams} />
+      <AddCart {...searchParams} quantity={1} />
     </div>
   );
 }
