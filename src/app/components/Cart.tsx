@@ -31,11 +31,44 @@ export default function Cart() {
             />
             <div className="m-2">
               <h2>{item.name}</h2>
-              <p>Quantity: {item.quantity}</p>
+              <div className="flex gap-2">
+                <p>Quantity: {item.quantity}</p>
+                <button
+                  onClick={() =>
+                    cartStore.addStorage({
+                      id: item.id,
+                      image: item.image,
+                      name: item.name,
+                      unit_amount: item.unit_amount,
+                      quantity: item.quantity,
+                    })
+                  }
+                >
+                  ➕
+                </button>
+                <button
+                  onClick={() =>
+                    cartStore.removeStorage({
+                      id: item.id,
+                      image: item.image,
+                      name: item.name,
+                      unit_amount: item.unit_amount,
+                      quantity: item.quantity,
+                    })
+                  }
+                >
+                  ➖
+                </button>
+              </div>
               <p>{item.unit_amount && formatPrice(item.unit_amount)}</p>
             </div>
           </div>
         ))}
+        <div className="flex justify-center">
+          <button className="bg-amber-300 text-amber-900 font-bold py-2 px-4 rounded-full">
+            Checkout
+          </button>
+        </div>
       </div>
     </div>
   );
