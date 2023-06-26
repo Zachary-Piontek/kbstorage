@@ -15,19 +15,21 @@ export default function Cart() {
       {/* stopPropagation prevents the click event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event. */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white absolute top-0 right-0 w-1/4 h-screen p-12 overflow-y-scroll text-black border-4 border-amber-800"
+        className="bg-amber-200 absolute top-0 right-0 w-1/4 h-screen p-12 overflow-y-scroll text-black border-4 border-amber-800"
       >
-        <h1 className="text-2xl font-bold text-center">Storage list</h1>
+        <h1 className="bg-amber-300 border-2 border-amber-400 text-2xl font-bold underline text-center">
+          Cart list
+        </h1>
         {cartStore.cart.map((item) => (
           <div key={item.id} className="flex items-center p-4">
             <Image
-              className="rounded-sm h-24"
+              className="rounded-md h-24"
               src={item.image}
               alt={item.name}
               width={200}
               height={200}
             />
-            <div>
+            <div className="m-2">
               <h2>{item.name}</h2>
               <p>Quantity: {item.quantity}</p>
               <p>{item.unit_amount && formatPrice(item.unit_amount)}</p>
