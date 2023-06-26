@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCartStore } from "../../../cartStore";
+import formatPrice from "../util/PriceFormat";
 
 export default function Cart() {
   const cartStore = useCartStore();
@@ -11,10 +12,28 @@ export default function Cart() {
       onClick={() => cartStore.toggleCart()}
       className="fixed w-full h-screen left-0 top-0 bg-amber-800/20"
     >
-      <div className="bg-white absolute top-0 right-0 w-96 h-screen">
-        <h1 className="text-2xl font-bold text-center text-black">
-          Storage list
-        </h1>
+      {/* stopPropagation prevents the click event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event. */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white absolute top-0 right-0 w-1/4 h-screen p-12 overflow-y-scroll text-black border-4 border-amber-800"
+      >
+        <h1 className="text-2xl font-bold text-center">Storage list</h1>
+        {cartStore.cart.map((item) => (
+          <div key={item.id} className="flex items-center p-4">
+            <Image
+              className="rounded-sm h-24"
+              src={item.image}
+              alt={item.name}
+              width={200}
+              height={200}
+            />
+            <div>
+              <h2>{item.name}</h2>
+              <p>Quantity: {item.quantity}</p>
+              <p>{item.unit_amount && formatPrice(item.unit_amount)}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
