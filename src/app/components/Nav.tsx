@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Cart from "./Cart";
 import { useCartStore } from "../../../cartStore";
+import Logo from "../../../public/logo-kb-min.png";
 
 export default function Nav({ user }: Session & { user: any }) {
   const cartStore = useCartStore();
@@ -14,7 +15,7 @@ export default function Nav({ user }: Session & { user: any }) {
   return (
     <nav className="flex justify-between items-center border-b-2 border-amber-400 py-4">
       <Link href="/">
-        <h1 className="text-5xl text-center m-1">KB Storage 🏢</h1>
+        <Image src={Logo} alt="Kastberg Logo" width={200} height={200} />
       </Link>
       <ul className="flex flex-col items-center gap-1 m-2">
         <div className="flex flex-col-2">
